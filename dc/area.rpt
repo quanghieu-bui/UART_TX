@@ -1,0 +1,26 @@
+Information: Updating graph... (UID-83)
+ 
+****************************************
+Report : area
+Design : uart_tx
+Version: D-2010.03-SP4
+Date   : Wed Mar 28 05:29:35 2018
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    saed90nm_typ (File: /home/ltk/ASIC_LIB/Lib/syn_lib/syn_lib/saed90nm_typ.db)
+
+Number of ports:               13
+Number of nets:                91
+Number of cells:               76
+Number of references:          18
+
+Combinational area:        498.585603
+Noncombinational area:     611.942410
+Net Interconnect area:      47.048668  
+
+Total cell area:          1110.528012
+Total area:               1157.576680
+1

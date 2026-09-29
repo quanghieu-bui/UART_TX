@@ -1,0 +1,52 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : uart_tx
+Version: D-2010.03-SP4
+Date   : Wed Mar 28 05:29:35 2018
+****************************************
+
+Operating Conditions: TYPICAL   Library: saed90nm_typ
+Wire Load Model Mode: enclosed
+
+  Startpoint: tx_start (input port clocked by CLK)
+  Endpoint: state_reg[0]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  uart_tx            8000                  saed90nm_typ
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 f
+  tx_start (in)                            0.00       1.00 f
+  U67/QN (NAND2X1)                         0.05       1.05 r
+  U60/ZN (INVX0)                           0.08       1.13 f
+  U42/Q (AO21X1)                           0.07       1.19 f
+  U57/ZN (INVX0)                           0.03       1.22 r
+  U40/Q (AO22X1)                           0.08       1.30 r
+  state_reg[0]/D (DFFARX1)                 0.00       1.30 r
+  data arrival time                                   1.30
+
+  clock CLK (rise edge)                   10.00      10.00
+  clock network delay (ideal)              0.00      10.00
+  clock uncertainty                       -0.20       9.80
+  state_reg[0]/CLK (DFFARX1)               0.00       9.80 r
+  library setup time                      -0.08       9.72
+  data required time                                  9.72
+  -----------------------------------------------------------
+  data required time                                  9.72
+  data arrival time                                  -1.30
+  -----------------------------------------------------------
+  slack (MET)                                         8.42
+
+
+1

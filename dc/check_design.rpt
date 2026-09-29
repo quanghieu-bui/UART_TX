@@ -1,0 +1,5 @@
+Warning: In design 'uart_tx', cell 'C276' does not drive any nets. (LINT-1)
+Warning: In design 'uart_tx', cell 'C283' does not drive any nets. (LINT-1)
+Warning: In design 'uart_tx', cell 'C284' does not drive any nets. (LINT-1)
+Warning: In design 'uart_tx', cell 'C288' does not drive any nets. (LINT-1)
+1
