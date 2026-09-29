@@ -1,0 +1,600 @@
+****************************************
+Report : timing
+	-path_type full
+	-delay_type min
+	-max_paths 10
+Design : uart_tx
+Version: D-2010.06-SP2
+Date   : Wed Mar 28 05:37:21 2018
+****************************************
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: bit_index_reg[0]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  bit_index_reg[0]/RSTB (DFFARX1)          0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  bit_index_reg[0]/CLK (DFFARX1)                      0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: bit_index_reg[1]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  bit_index_reg[1]/RSTB (DFFARX1)          0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  bit_index_reg[1]/CLK (DFFARX1)                      0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: bit_index_reg[2]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  bit_index_reg[2]/RSTB (DFFARX1)          0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  bit_index_reg[2]/CLK (DFFARX1)                      0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: clk_count_reg[0]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  clk_count_reg[0]/RSTB (DFFARX1)          0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  clk_count_reg[0]/CLK (DFFARX1)                      0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: clk_count_reg[1]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  clk_count_reg[1]/RSTB (DFFARX1)          0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  clk_count_reg[1]/CLK (DFFARX1)                      0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: clk_count_reg[2]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  clk_count_reg[2]/RSTB (DFFARX1)          0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  clk_count_reg[2]/CLK (DFFARX1)                      0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: clk_count_reg[3]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  clk_count_reg[3]/RSTB (DFFARX1)          0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  clk_count_reg[3]/CLK (DFFARX1)                      0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: data_reg_reg[0]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  data_reg_reg[0]/RSTB (DFFARX1)           0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  data_reg_reg[0]/CLK (DFFARX1)                       0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: data_reg_reg[1]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  data_reg_reg[1]/RSTB (DFFARX1)           0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  data_reg_reg[1]/CLK (DFFARX1)                       0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: rst_n (input port clocked by CLK)
+  Endpoint: data_reg_reg[2]
+               (removal check against rising-edge clock CLK)
+  Path Group: **async_default**
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  input external delay                     1.00       1.00 r
+  rst_n (in)                               0.00       1.00 r
+  data_reg_reg[2]/RSTB (DFFARX1)           0.00       1.00 r
+  data arrival time                                   1.00
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  data_reg_reg[2]/CLK (DFFARX1)                       0.20 r
+  library removal time                     0.09       0.29
+  data required time                                  0.29
+  ---------------------------------------------------------------
+  data required time                                  0.29
+  data arrival time                                  -1.00
+  ---------------------------------------------------------------
+  slack (MET)                                         0.71
+
+
+  Startpoint: clk_count_reg[1]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: clk_count_reg[1]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clk_count_reg[1]/CLK (DFFARX1)           0.00       0.00 r
+  clk_count_reg[1]/QN (DFFARX1)            0.12       0.12 f
+  U51/Q (XOR2X1)                           0.07       0.19 r
+  U74/QN (NOR2X0)                          0.03       0.21 f
+  clk_count_reg[1]/D (DFFARX1)             0.00       0.21 f
+  data arrival time                                   0.21
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  clk_count_reg[1]/CLK (DFFARX1)                      0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.21
+  ---------------------------------------------------------------
+  slack (MET)                                         0.03
+
+
+  Startpoint: clk_count_reg[0]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: clk_count_reg[0]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clk_count_reg[0]/CLK (DFFARX1)           0.00       0.00 r
+  clk_count_reg[0]/Q (DFFARX1)             0.18       0.18 r
+  U75/QN (NOR2X0)                          0.03       0.22 f
+  clk_count_reg[0]/D (DFFARX1)             0.00       0.22 f
+  data arrival time                                   0.22
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  clk_count_reg[0]/CLK (DFFARX1)                      0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.22
+  ---------------------------------------------------------------
+  slack (MET)                                         0.03
+
+
+  Startpoint: bit_index_reg[0]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: bit_index_reg[1]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  bit_index_reg[0]/CLK (DFFARX1)           0.00       0.00 r
+  bit_index_reg[0]/QN (DFFARX1)            0.13       0.13 r
+  U38/QN (NOR4X0)                          0.06       0.19 f
+  U37/Q (AO21X1)                           0.05       0.24 f
+  bit_index_reg[1]/D (DFFARX1)             0.00       0.24 f
+  data arrival time                                   0.24
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  bit_index_reg[1]/CLK (DFFARX1)                      0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.24
+  ---------------------------------------------------------------
+  slack (MET)                                         0.05
+
+
+  Startpoint: state_reg[1]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: tx_busy_reg
+               (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  state_reg[1]/CLK (DFFARX1)               0.00       0.00 r
+  state_reg[1]/QN (DFFARX1)                0.12       0.12 f
+  U76/QN (NAND2X1)                         0.04       0.15 r
+  U65/QN (NAND2X1)                         0.03       0.18 f
+  U58/ZN (INVX0)                           0.03       0.21 r
+  U53/QN (NAND3X0)                         0.03       0.24 f
+  tx_busy_reg/D (DFFARX1)                  0.00       0.24 f
+  data arrival time                                   0.24
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  tx_busy_reg/CLK (DFFARX1)                           0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.24
+  ---------------------------------------------------------------
+  slack (MET)                                         0.06
+
+
+  Startpoint: state_reg[1]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: tx_reg (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  state_reg[1]/CLK (DFFARX1)               0.00       0.00 r
+  state_reg[1]/QN (DFFARX1)                0.13       0.13 r
+  U68/QN (NOR2X0)                          0.05       0.19 f
+  U78/QN (NAND2X1)                         0.03       0.22 r
+  U56/QN (NAND3X0)                         0.03       0.25 f
+  tx_reg/D (DFFASX1)                       0.00       0.25 f
+  data arrival time                                   0.25
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  tx_reg/CLK (DFFASX1)                                0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.25
+  ---------------------------------------------------------------
+  slack (MET)                                         0.06
+
+
+  Startpoint: state_reg[1]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: state_reg[1]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  state_reg[1]/CLK (DFFARX1)               0.00       0.00 r
+  state_reg[1]/QN (DFFARX1)                0.12       0.12 f
+  U76/QN (NAND2X1)                         0.04       0.15 r
+  U65/QN (NAND2X1)                         0.03       0.18 f
+  U40/Q (AO22X1)                           0.06       0.25 f
+  state_reg[1]/D (DFFARX1)                 0.00       0.25 f
+  data arrival time                                   0.25
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  state_reg[1]/CLK (DFFARX1)                          0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.25
+  ---------------------------------------------------------------
+  slack (MET)                                         0.06
+
+
+  Startpoint: data_reg_reg[1]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: data_reg_reg[1]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  data_reg_reg[1]/CLK (DFFARX1)            0.00       0.00 r
+  data_reg_reg[1]/Q (DFFARX1)              0.19       0.19 f
+  U30/Q (AO22X1)                           0.06       0.25 f
+  data_reg_reg[1]/D (DFFARX1)              0.00       0.25 f
+  data arrival time                                   0.25
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  data_reg_reg[1]/CLK (DFFARX1)                       0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.25
+  ---------------------------------------------------------------
+  slack (MET)                                         0.06
+
+
+  Startpoint: data_reg_reg[5]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: data_reg_reg[5]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  data_reg_reg[5]/CLK (DFFARX1)            0.00       0.00 r
+  data_reg_reg[5]/Q (DFFARX1)              0.19       0.19 f
+  U34/Q (AO22X1)                           0.06       0.25 f
+  data_reg_reg[5]/D (DFFARX1)              0.00       0.25 f
+  data arrival time                                   0.25
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  data_reg_reg[5]/CLK (DFFARX1)                       0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.25
+  ---------------------------------------------------------------
+  slack (MET)                                         0.06
+
+
+  Startpoint: data_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: data_reg_reg[0]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  data_reg_reg[0]/CLK (DFFARX1)            0.00       0.00 r
+  data_reg_reg[0]/Q (DFFARX1)              0.19       0.19 f
+  U29/Q (AO22X1)                           0.06       0.25 f
+  data_reg_reg[0]/D (DFFARX1)              0.00       0.25 f
+  data arrival time                                   0.25
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  data_reg_reg[0]/CLK (DFFARX1)                       0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.25
+  ---------------------------------------------------------------
+  slack (MET)                                         0.06
+
+
+  Startpoint: data_reg_reg[4]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: data_reg_reg[4]
+               (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: min
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  data_reg_reg[4]/CLK (DFFARX1)            0.00       0.00 r
+  data_reg_reg[4]/Q (DFFARX1)              0.19       0.19 f
+  U33/Q (AO22X1)                           0.06       0.25 f
+  data_reg_reg[4]/D (DFFARX1)              0.00       0.25 f
+  data arrival time                                   0.25
+
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  clock uncertainty                        0.20       0.20
+  data_reg_reg[4]/CLK (DFFARX1)                       0.20 r
+  library hold time                       -0.01       0.19
+  data required time                                  0.19
+  ---------------------------------------------------------------
+  data required time                                  0.19
+  data arrival time                                  -0.25
+  ---------------------------------------------------------------
+  slack (MET)                                         0.06
+
+
+1
