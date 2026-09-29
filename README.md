@@ -1,21 +1,62 @@
-# UART TX — ASIC Full Design Flow
+# UART TX — ASIC Physical Design Full Flow
 
-## Overview
-
-This project implements a UART Transmitter in SystemVerilog and demonstrates a complete ASIC digital design flow:
-
-**RTL → Simulation → SDC → Synthesis → Floorplan → Placement → CTS → Routing → DRC Verification → Static Timing Analysis → GDS**
-
-The design was implemented using Synopsys VCS, Design Compiler, IC Compiler, and PrimeTime.
+A UART Transmitter implemented in SystemVerilog and taken through a complete ASIC physical design flow using Synopsys tools.
 
 ---
 
+## 1. Project Overview
 
-## Design Flow
+This project demonstrates the implementation of a UART Transmitter from RTL design to physical implementation.
 
-### 1. RTL Design
+The complete ASIC design flow includes:
 
-The UART transmitter was described using SystemVerilog.
+**RTL → Simulation → SDC → Synthesis → Floorplan → Placement → CTS → Routing → STA → GDS**
+
+The design was implemented using a **90 nm standard-cell technology library**.
+
+---
+
+## 2. Design Flow
+
+```text
+RTL Design
+    │
+    ▼
+VCS Simulation
+    │
+    ▼
+SDC Timing Constraints
+    │
+    ▼
+Design Compiler
+    │
+    ├── Logic Synthesis
+    ├── Area Analysis
+    └── Timing Analysis
+    │
+    ▼
+IC Compiler
+    │
+    ├── Floorplanning
+    ├── Placement
+    ├── Clock Tree Synthesis
+    └── Routing
+    │
+    ▼
+PrimeTime
+    │
+    ├── Setup Analysis
+    └── Hold Analysis
+    │
+    ▼
+Final GDS
+```
+
+---
+
+## 3. RTL Design
+
+The UART Transmitter is described using SystemVerilog RTL.
 
 Main RTL source:
 
@@ -23,176 +64,142 @@ Main RTL source:
 rtl/uart_tx.sv
 ```
 
-A dedicated testbench was used to verify the RTL functionality:
+The design was verified using a dedicated testbench:
 
 ```text
 rtl/tb_uart_tx.sv
 ```
 
----
-
-### 2. RTL Simulation
-
-Simulation was performed using **Synopsys VCS**.
-
-The waveform can be analyzed using **DVE**.
-
-![UART TX Simulation](pic/Picture1.png)
-
-### 3. Timing Constraints
-
-The design was constrained using Synopsys Design Constraints:
+Top-level module:
 
 ```text
-constraints/uart_tx.sdc
+uart_tx
 ```
 
+---
 
-### 4. Logic Synthesis
+## 4. RTL Simulation
+
+RTL simulation was performed using **Synopsys VCS**.
+
+The testbench verifies the functional behavior of the UART Transmitter before synthesis.
+
+### Simulation Waveform
+
+![RTL Simulation Waveform](pic/Picture1.png)
+
+---
+
+## 5. Logic Synthesis
 
 Logic synthesis was performed using **Synopsys Design Compiler**.
 
-Main synthesis script:
+The RTL was synthesized into a gate-level netlist using the SAED 90 nm standard-cell library.
 
-```text
-dc/run_dc.tcl
-```
+### Gate-Level Schematic
 
-The synthesized gate-level netlist is:
+![Schematic](pic/Picture0.webp)
+
+![Floorplan](pic/Picture3.png)
+
+### Area Report
+
+![Area Report](pic/Picture2.png)
+
+### Timing Report
+
+![Timing Report](pic/Picture4.png)
+
+Generated netlist:
 
 ```text
 netlist/uart_tx_NL.v
 ```
 
-Synthesis reports are available in:
-
-```text
-dc/reports/
-```
-
-including:
-
-* Area report
-* Timing report
-* Constraint report
-* Design checks
-
 ---
 
-### 5. Physical Design — IC Compiler
+## 6. Physical Design
 
-The synthesized netlist was implemented using **Synopsys IC Compiler**.
+Physical implementation was performed using **Synopsys IC Compiler**.
 
-The physical design flow includes:
+### Floorplanning
 
-```text
-Floorplan
-   ↓
-Placement
-   ↓
-Clock Tree Synthesis
-   ↓
-Routing
-   ↓
-Route Verification
-```
+A core utilization of approximately **70%** was used for the initial floorplan.
 
-ICC reports are available in:
-
-```text
-icc/reports/
-```
+![Floorplan](pic/Picture5.png)
 
 ---
-
-## Physical Design Results
 
 ### Placement
 
-The placement stage achieved approximately:
+Standard cells were placed inside the core area while considering timing and routing constraints.
 
-```text
-Utilization: 70%
-```
+![Placement](pic/Picture6.png)
 
-Detailed results are available in:
-
-```text
-icc/reports/placement_qor.rpt
-icc/reports/placement_utilization.rpt
-```
+---
 
 ### Clock Tree Synthesis
 
-CTS was performed successfully with:
+Clock Tree Synthesis (CTS) was performed to distribute the clock signal across the design.
 
-```text
-Critical Path Slack: +8.33 ns
-TNS: 0
-Violating Paths: 0
-Hold Violations: 0
-```
+![Clock Tree Synthesis](pic/Picture.png)
 
-CTS results:
+After CTS:
 
-```text
-icc/reports/cts_qor.rpt
-```
+| Parameter                   |   Result |
+| --------------------------- | -------: |
+| Clock Period                |    10 ns |
+| Setup Slack                 | +8.33 ns |
+| TNS                         |     0 ns |
+| Violating Paths             |        0 |
+| Hold Violation              |        0 |
+| Leaf Cells                  |       76 |
+| Clock Buffer/Inverter Cells |        0 |
+
+---
 
 ### Routing
 
+Global and detailed routing were performed using IC Compiler.
+
 After routing:
 
-```text
-Critical Path Slack: +8.33 ns
-TNS: 0
-Violating Paths: 0
-Routing Violations: 0
-```
+| Parameter              |   Result |
+| ---------------------- | -------: |
+| Setup Slack            | +8.33 ns |
+| Total Negative Slack   |     0 ns |
+| Violating Paths        |        0 |
+| Routing Net Violations |        0 |
+| Total Nets             |       91 |
+| Wire Length            |  1926 µm |
 
-The design contained:
-
-```text
-76 leaf cells
-8 buffer/inverter cells
-91 nets
-```
-
-Routing report:
-
-```text
-icc/reports/routing_qor.rpt
-```
+![Routing](pic/Picture7.png)
 
 ---
 
-## Route Verification
+## 7. Physical Verification
 
-IC Compiler route verification reported:
+Route verification was performed using the IC Compiler `verify_zrt_route` command.
 
-```text
-Total DRC Violations: 0
-Open Nets: 0
-```
+The verification reported:
 
-This result refers to the ICC `verify_zrt_route` check.
+| Parameter      | Result |
+| -------------- | -----: |
+| DRC Violations |      0 |
+| Open Nets      |      0 |
+| Routing Errors |      0 |
 
-Antenna checking was not performed because the available technology setup did not define antenna rules.
+![PV](pic/Picture8.png)
+
+> Note: Antenna checking was not performed because antenna rules were not defined in the available technology setup.
 
 ---
 
-## Static Timing Analysis
+## 8. Static Timing Analysis
 
-Static timing analysis was performed using **Synopsys PrimeTime**.
+Static Timing Analysis was performed using **Synopsys PrimeTime**.
 
-Reports:
-
-```text
-pt/reports/setup.rpt
-pt/reports/hold.rpt
-```
-
-### Setup
+### Setup Analysis
 
 Worst reported setup slack:
 
@@ -200,7 +207,7 @@ Worst reported setup slack:
 +8.42 ns
 ```
 
-### Hold
+### Hold Analysis
 
 Worst reported hold slack:
 
@@ -208,56 +215,126 @@ Worst reported hold slack:
 +0.03 ns
 ```
 
-The reported setup and hold paths met their timing constraints.
-
----
-
-## Final GDS
-
-The final physical design was exported to GDSII:
+PrimeTime reports:
 
 ```text
-final/uart_tx.gds
+pt/reports/setup.rpt
+pt/reports/hold.rpt
 ```
 
-The GDS represents the final routed physical implementation of the UART transmitter.
+---
+
+## 9. Final Layout
+
+The final routed design was exported as a **GDSII** file.
+
+```text
+uart_tx.gds
+```
+
+### Final Layout
+
+![Final Layout](pic/layout.png)
 
 ---
 
-## Tools
+## 10. Key Results
 
-| Stage           | Tool                     |
-| --------------- | ------------------------ |
-| RTL             | SystemVerilog            |
-| Simulation      | Synopsys VCS / DVE       |
-| Synthesis       | Synopsys Design Compiler |
-| Physical Design | Synopsys IC Compiler     |
-| STA             | Synopsys PrimeTime       |
-| Layout Output   | GDSII                    |
-
----
-
-## Key Results
-
-| Metric                |   Result |
-| --------------------- | -------: |
-| Clock Period          |    10 ns |
-| Clock Frequency       |  100 MHz |
-| Leaf Cells            |       76 |
-| Buffer/Inverter Cells |        8 |
-| Total Nets            |       91 |
-| Cell Area             |  1110.53 |
-| Design Area           |  1146.98 |
-| Routing DRC           |        0 |
-| Open Nets             |        0 |
-| Setup Slack           | +8.42 ns |
-| Hold Slack            | +0.03 ns |
+| Parameter              |     Result |
+| ---------------------- | ---------: |
+| Technology             | SAED 90 nm |
+| Clock Period           |      10 ns |
+| Clock Frequency        |    100 MHz |
+| Core Utilization       |       ~70% |
+| Leaf Cells             |         76 |
+| Total Nets             |         91 |
+| Cell Area              |    1110.53 |
+| Design Area            |    1146.98 |
+| CTS Setup Slack        |   +8.33 ns |
+| CTS Hold Violation     |          0 |
+| Routed Setup Slack     |   +8.33 ns |
+| Total Negative Slack   |          0 |
+| Routing Net Violations |          0 |
+| DRC Violations         |          0 |
+| Open Nets              |          0 |
+| PT Setup Slack         |   +8.42 ns |
+| PT Hold Slack          |   +0.03 ns |
 
 ---
 
-## Project Objective
+## 11. Tools
 
-The purpose of this project is to demonstrate practical experience with an ASIC digital implementation flow, including:
+| Design Stage           | Tool                     |
+| ---------------------- | ------------------------ |
+| RTL Design             | SystemVerilog            |
+| Simulation             | Synopsys VCS / DVE       |
+| Logic Synthesis        | Synopsys Design Compiler |
+| Physical Design        | Synopsys IC Compiler     |
+| Static Timing Analysis | Synopsys PrimeTime       |
+| Final Layout           | GDSII                    |
+
+---
+
+## 12. Project Structure
+
+```text
+UART_TX/
+├── rtl/
+│   └── uart_tx.sv
+│
+├── sim/
+│   └── tb_uart_tx.sv
+│
+├── constraints/
+│   └── uart_tx.sdc
+│
+├── dc/
+│   ├── run_dc.tcl
+│   └── reports/
+│       ├── area.rpt
+│       ├── timing.rpt
+│       ├── constraint.rpt
+│       └── check_design.rpt
+│
+├── icc/
+│   └── reports/
+│       ├── placement_qor.rpt
+│       ├── placement_utilization.rpt
+│       ├── cts_qor.rpt
+│       └── routing_qor.rpt
+│
+├── pt/
+│   └── reports/
+│       ├── setup.rpt
+│       └── hold.rpt
+│
+├── netlist/
+│   └── uart_tx_NL.v
+│
+├── final/
+│   └── uart_tx.gds
+│
+├── pic/
+│   ├── Picture1.png
+│   ├── Picture2.png
+│   ├── Picture3.png
+│   ├── Picture4.png
+│   ├── Picture5.png
+│   ├── Picture6.png
+│   ├── Picture7.png
+│   ├── Picture8.png
+│   ├── PV.png
+│   └── layout.png
+│
+├── README.md
+└── .gitignore
+```
+
+---
+
+## 13. Project Objective
+
+The purpose of this project is to demonstrate practical experience with a complete ASIC digital implementation flow, including:
 
 * RTL design
 * Functional simulation
@@ -270,13 +347,3 @@ The purpose of this project is to demonstrate practical experience with an ASIC 
 * Physical verification
 * Static timing analysis
 * GDSII generation
-
----
-
-## Author
-
-**Bui Quang Hieu**
-
-Electronics and Telecommunications
-IC Design Specialization
-University of Science, VNU-HCM
