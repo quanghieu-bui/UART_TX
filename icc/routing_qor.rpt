@@ -1,0 +1,64 @@
+ 
+****************************************
+Report : qor
+Design : uart_tx
+Version: D-2010.03-ICC-SP4
+Date   : Wed Mar 28 05:35:25 2018
+****************************************
+
+
+  Timing Path Group 'CLK'
+  -----------------------------------
+  Levels of Logic:               5.00
+  Critical Path Length:          0.39
+  Critical Path Slack:           8.33
+  Critical Path Clk Period:     10.00
+  Total Negative Slack:          0.00
+  No. of Violating Paths:        0.00
+  Worst Hold Violation:          0.00
+  Total Hold Violation:          0.00
+  No. of Hold Violations:        0.00
+  -----------------------------------
+
+
+  Cell Count
+  -----------------------------------
+  Hierarchical Cell Count:          0
+  Hierarchical Port Count:          0
+  Leaf Cell Count:                 76
+  Buf/Inv Cell Count:               8
+  CT Buf/Inv Cell Count:            0
+  -----------------------------------
+
+
+  Area
+  -----------------------------------
+  Combinational Area:      498.585603
+  Noncombinational Area:   611.942410
+  Net Area:                 36.455352
+  Net XLength        :         925.54
+  Net YLength        :        1025.45
+  -----------------------------------
+  Cell Area:              1110.528012
+  Design Area:            1146.983364
+  Net Length        :         1951.00
+
+
+  Design Rules
+  -----------------------------------
+  Total Number of Nets:            91
+  Nets With Violations:             0
+  -----------------------------------
+
+
+  Hostname: virtualpc
+
+  Compile CPU Statistics
+  -----------------------------------
+  Resource Sharing:              0.00
+  Logic Optimization:            0.00
+  Mapping Optimization:          0.00
+  -----------------------------------
+  Overall Compile Time:          0.00
+
+1
