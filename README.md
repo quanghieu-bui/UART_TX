@@ -10,50 +10,6 @@ The design was implemented using Synopsys VCS, Design Compiler, IC Compiler, and
 
 ---
 
-## Project Structure
-
-```text
-UART_TX/
-├── rtl/
-│   └── uart_tx.sv
-│
-├── sim/
-│   └── tb_uart_tx.sv
-│
-├── constraints/
-│   └── uart_tx.sdc
-│
-├── dc/
-│   ├── run_dc.tcl
-│   └── reports/
-│       ├── area.rpt
-│       ├── timing.rpt
-│       ├── constraint.rpt
-│       └── check_design.rpt
-│
-├── icc/
-│   └── reports/
-│       ├── placement_qor.rpt
-│       ├── placement_utilization.rpt
-│       ├── cts_qor.rpt
-│       └── routing_qor.rpt
-│
-├── pt/
-│   └── reports/
-│       ├── setup.rpt
-│       └── hold.rpt
-│
-├── netlist/
-│   └── uart_tx_NL.v
-│
-├── final/
-│   └── uart_tx.gds
-│
-├── README.md
-└── .gitignore
-```
-
----
 
 ## Design Flow
 
@@ -70,7 +26,7 @@ rtl/uart_tx.sv
 A dedicated testbench was used to verify the RTL functionality:
 
 ```text
-sim/tb_uart_tx.sv
+rtl/tb_uart_tx.sv
 ```
 
 ---
@@ -81,13 +37,7 @@ Simulation was performed using **Synopsys VCS**.
 
 The waveform can be analyzed using **DVE**.
 
-Simulation files are provided in:
-
-```text
-sim/
-```
-
----
+![UART TX Simulation](pic/Picture1.png)
 
 ### 3. Timing Constraints
 
@@ -97,19 +47,6 @@ The design was constrained using Synopsys Design Constraints:
 constraints/uart_tx.sdc
 ```
 
-The main clock period is:
-
-```text
-10 ns
-```
-
-corresponding to:
-
-```text
-100 MHz
-```
-
----
 
 ### 4. Logic Synthesis
 
