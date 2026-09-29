@@ -136,25 +136,35 @@ Standard cells were placed inside the core area while considering timing and rou
 
 ![Placement](pic/Picture6.png)
 
+After placement:
+
+| Parameter       | Result |
+| --------------- | -----: |
+| Core Utilization | ~70% |
+| Leaf Cells       | 76 |
+| Design Area      | 1146.98 |
+
 ---
 
 ### Clock Tree Synthesis
 
 Clock Tree Synthesis (CTS) was performed to distribute the clock signal across the design.
 
-![Clock Tree Synthesis](pic/Picture.png)
+![Clock Tree Synthesis](pic/Picture9.png)
+
+After CTS:
 
 After CTS:
 
 | Parameter                   |   Result |
 | --------------------------- | -------: |
-| Clock Period                |    10 ns |
+| Critical Path               | 0.39 ns |
 | Setup Slack                 | +8.33 ns |
-| TNS                         |     0 ns |
-| Violating Paths             |        0 |
-| Hold Violation              |        0 |
-| Leaf Cells                  |       76 |
-| Clock Buffer/Inverter Cells |        0 |
+| TNS                         | 0 ns |
+| Violating Paths             | 0 |
+| Hold Violation              | 0 |
+| Leaf Cells                  | 76 |
+| Clock Buffer/Inverter Cells | 0 |
 
 ---
 
@@ -164,14 +174,18 @@ Global and detailed routing were performed using IC Compiler.
 
 After routing:
 
-| Parameter              |   Result |
-| ---------------------- | -------: |
-| Setup Slack            | +8.33 ns |
-| Total Negative Slack   |     0 ns |
-| Violating Paths        |        0 |
-| Routing Net Violations |        0 |
-| Total Nets             |       91 |
-| Wire Length            |  1926 µm |
+| Parameter              | Result |
+| ---------------------- | -----: |
+| Setup WNS              | 0 ns |
+| TNS                    | 0 ns |
+| Hold WNS               | 0 ns |
+| DRC Violating Nets     | 0 |
+| Route Violations       | 0 |
+| Open Nets              | 0 |
+| Detail Routing DRC     | 0 |
+| Peak Horizontal Congestion | 57.14% |
+| Peak Vertical Congestion   | 37.50% |
+| Total Wire Length      | ~1926 µm |
 
 ![Routing](pic/Picture7.png)
 
@@ -232,11 +246,6 @@ The final routed design was exported as a **GDSII** file.
 uart_tx.gds
 ```
 
-### Final Layout
-
-![Final Layout](pic/layout.png)
-
----
 
 ## 10. Key Results
 
@@ -272,78 +281,3 @@ uart_tx.gds
 | Physical Design        | Synopsys IC Compiler     |
 | Static Timing Analysis | Synopsys PrimeTime       |
 | Final Layout           | GDSII                    |
-
----
-
-## 12. Project Structure
-
-```text
-UART_TX/
-├── rtl/
-│   └── uart_tx.sv
-│
-├── sim/
-│   └── tb_uart_tx.sv
-│
-├── constraints/
-│   └── uart_tx.sdc
-│
-├── dc/
-│   ├── run_dc.tcl
-│   └── reports/
-│       ├── area.rpt
-│       ├── timing.rpt
-│       ├── constraint.rpt
-│       └── check_design.rpt
-│
-├── icc/
-│   └── reports/
-│       ├── placement_qor.rpt
-│       ├── placement_utilization.rpt
-│       ├── cts_qor.rpt
-│       └── routing_qor.rpt
-│
-├── pt/
-│   └── reports/
-│       ├── setup.rpt
-│       └── hold.rpt
-│
-├── netlist/
-│   └── uart_tx_NL.v
-│
-├── final/
-│   └── uart_tx.gds
-│
-├── pic/
-│   ├── Picture1.png
-│   ├── Picture2.png
-│   ├── Picture3.png
-│   ├── Picture4.png
-│   ├── Picture5.png
-│   ├── Picture6.png
-│   ├── Picture7.png
-│   ├── Picture8.png
-│   ├── PV.png
-│   └── layout.png
-│
-├── README.md
-└── .gitignore
-```
-
----
-
-## 13. Project Objective
-
-The purpose of this project is to demonstrate practical experience with a complete ASIC digital implementation flow, including:
-
-* RTL design
-* Functional simulation
-* Timing constraint development
-* Logic synthesis
-* Floorplanning
-* Standard-cell placement
-* Clock tree synthesis
-* Routing
-* Physical verification
-* Static timing analysis
-* GDSII generation
